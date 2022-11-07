@@ -1,0 +1,15 @@
+extends layout
+
+block content
+    .row.banner
+        .col-12
+            h1= set.title + " Set"
+
+    .row
+        .col-12.col-md-8
+            .quizsets
+               each s in set.questions
+                   .card
+                       .card-block
+                           h4= s.qTitle
+                           p= s.qDefinition

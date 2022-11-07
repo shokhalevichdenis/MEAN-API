@@ -1,3 +1,4 @@
+// API Controller
 const mongoose = require('mongoose');
 const Set = mongoose.model('Set');
 
@@ -94,10 +95,7 @@ const setUpdateOne = (req, res) => {
         }
         set.title = req.body.title;
         set.subTitle = req.body.subTitle;
-        set.questions = [{
-          qTitle: req.body.qTitle,
-          qDefinition: req.body.qDefinition
-        }];
+        set.questions = req.body.questions;
         set.save((err, set) => {
           if (err) {
             res
@@ -118,12 +116,7 @@ const setCreate = (req, res) => {
   Set.create({
       title: req.body.title,
       subTitle: req.body.subTitle,
-      questions: [
-        {
-          qTitle: req.body.qTitle,
-          qDefinition: req.body.qDefinition
-        }
-      ]
+      questions: req.body.questions
     },
     (err, set) => {
       if (err) {

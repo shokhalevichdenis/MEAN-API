@@ -1,3 +1,4 @@
+// Scheme of a set
 const mongoose = require('mongoose');
 
 const questionsSchema = new mongoose.Schema({

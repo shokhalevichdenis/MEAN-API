@@ -3,8 +3,12 @@ const apiOptions = {
   server: 'http://localhost:3000'
 };
 
+if (process.env.NODE_ENV === 'production') {
+  apiOptions.server = 'https://pure-temple-67771.herokuapp.com';
+}
 
 // List of Sets
+// Renders Home page
 const renderHomepage = (req, res, responseBody) => {
   let message = null;
   if (!(responseBody instanceof Array)) {
@@ -22,7 +26,7 @@ const renderHomepage = (req, res, responseBody) => {
     }
   );
 };
-
+// Requests the list of sets from API
 const homelist = (req, res) => {
   const path = '/api/sets';
   const requestOptions = {
@@ -37,17 +41,19 @@ const homelist = (req, res) => {
 };
 
 // One Set
+// Renders one set page
 const renderSet = (req, res, responseBody) => {
   let message = null;
-  if (!(responseBody instanceof Array)) {
-    message = 'API lookup error';
-    responseBody = [];
-  } else {
-    if (!responseBody.length) {
-      message = 'No sets found';
-    }
-  }
-  res.render('oneset',
+  // // Returns error for some reason
+  // if (!(responseBody instanceof Array)) {
+  //   message = 'API lookup error';
+  //   responseBody = [];
+  // } else {
+  //   if (!responseBody.length) {
+  //     message = 'No sets found';
+  //   }
+  // }
+  res.render('one-set',
     {
       set: responseBody,
       message
@@ -55,8 +61,10 @@ const renderSet = (req, res, responseBody) => {
   );
 };
 
+// Requests one set from API
 const set = (req, res) => {
-  const path = `/api/sets/63689572ae361318fe9c1fe4`;
+  const setid = req.params.setid;
+  const path = `/api/sets/${setid}`;
   const requestOptions = {
     url: `${apiOptions.server}${path}`,
     method: 'GET',
