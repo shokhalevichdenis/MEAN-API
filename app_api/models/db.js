@@ -1,8 +1,10 @@
 const mongoose = require('mongoose');
 const readLine = require('readline');
 
-let dbURL = 'mongodb+srv://loc8r_admin:SRj2MKungRKf6XzN@cluster0.is9h1.mongodb.net/quizzapp?retryWrites=true&w=majority';
+// let dbURL = 'mongodb://127.0.0.1/quizzapp';
 
+let dbURL = 'mongodb+srv://loc8r_admin:SRj2MKungRKf6XzN@cluster0.is9h1.mongodb.net/quizzapp?retryWrites=true&w=majority';
+//
 // if (process.env.NODE_ENV === 'production') {
 //   dbURL = 'https://pure-temple-67771.herokuapp.com';
 // }

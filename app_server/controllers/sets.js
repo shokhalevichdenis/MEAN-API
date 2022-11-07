@@ -1,11 +1,12 @@
 const request = require('request');
 const apiOptions = {
-  server: 'http://localhost:3000'
+  // server: 'http://localhost:3000'
+  server: 'https://quizapp565.herokuapp.com'
 };
-
-if (process.env.NODE_ENV === 'production') {
-  apiOptions.server = 'https://pure-temple-67771.herokuapp.com';
-}
+//
+// if (process.env.NODE_ENV === 'production') {
+//   apiOptions.server = 'https://pure-temple-67771.herokuapp.com';
+// }
 
 // List of Sets
 // Renders Home page
